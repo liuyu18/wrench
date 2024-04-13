@@ -1,7 +1,7 @@
-import React, { CSSProperties, useEffect, useState } from "react";
-import { getMaskStyle } from "./getMaskStyle";
+import React, { CSSProperties, useEffect, useState } from 'react';
+import { getMaskStyle } from './getMaskStyle'
 
-import "./index.scss";
+import './index.scss';
 
 interface MaskProps {
   element: HTMLElement;
@@ -21,7 +21,7 @@ export const Mask: React.FC<MaskProps> = (props) => {
     renderMaskContent,
     container,
     onAnimationStart,
-    onAnimationEnd,
+    onAnimationEnd
   } = props;
 
   useEffect(() => {
@@ -39,11 +39,8 @@ export const Mask: React.FC<MaskProps> = (props) => {
 
   useEffect(() => {
     const observer = new ResizeObserver(() => {
-      const style = getMaskStyle(
-        element,
-        container || document.documentElement
-      );
-
+      const style = getMaskStyle(element, container || document.documentElement);
+  
       setStyle(style);
     });
     observer.observe(container || document.documentElement);
@@ -55,13 +52,14 @@ export const Mask: React.FC<MaskProps> = (props) => {
     }
 
     element.scrollIntoView({
-      block: "center",
-      inline: "center",
+        block: 'center',
+        inline: 'center'
     });
-
+  
     const style = getMaskStyle(element, container || document.documentElement);
-
+  
     setStyle(style);
+    
   }, [element, container]);
 
   const getContent = () => {
@@ -69,15 +67,14 @@ export const Mask: React.FC<MaskProps> = (props) => {
       return null;
     }
     return renderMaskContent(
-      <div
-        className={"mask-content"}
-        style={{ width: "100%", height: "100%" }}
-      />
+      <div className={'mask-content'} style={{ width: '100%', height: '100%' }} />
     );
   };
 
   return (
-    <div style={style} className="mask">
+    <div
+      style={style}
+      className='mask'>
       {getContent()}
     </div>
   );
