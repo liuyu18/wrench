@@ -1,83 +1,83 @@
-import { OnBoarding } from './OnBoarding'
-import { Button, Flex } from 'antd';
+import { OnBoarding } from "./OnBoarding";
+import { Button, Flex } from "antd";
 
 function App() {
+  return (
+    <div className="App">
+      <Flex gap="small" wrap="wrap" id="btn-group1">
+        <Button type="primary">Primary Button</Button>
+        <Button>Default Button</Button>
+        <Button type="dashed">Dashed Button</Button>
+        <Button type="text">Text Button</Button>
+        <Button type="link">Link Button</Button>
+      </Flex>
 
-  return <div className='App'>
-    <Flex gap="small" wrap="wrap" id="btn-group1">
-      <Button type="primary">Primary Button</Button>
-      <Button>Default Button</Button>
-      <Button type="dashed">Dashed Button</Button>
-      <Button type="text">Text Button</Button>
-      <Button type="link">Link Button</Button>
-    </Flex>
+      <div style={{ height: "100px" }}></div>
 
-  <div style={{height: '1000px'}}></div>
+      <Flex wrap="wrap" gap="small">
+        <Button type="primary" danger>
+          Primary
+        </Button>
+        <Button danger>Default</Button>
+        <Button type="dashed" danger id="btn-group2">
+          Dashed
+        </Button>
+        <Button type="text" danger>
+          Text
+        </Button>
+        <Button type="link" danger>
+          Link
+        </Button>
+      </Flex>
 
-  <Flex wrap="wrap" gap="small">
-    <Button type="primary" danger>
-      Primary
-    </Button>
-    <Button danger>Default</Button>
-    <Button type="dashed" danger  id="btn-group2">
-      Dashed
-    </Button>
-    <Button type="text" danger>
-      Text
-    </Button>
-    <Button type="link" danger>
-      Link
-    </Button>
-  </Flex>
+      <div style={{ height: "50px" }}></div>
 
-  <div style={{height: '500px'}}></div>
+      <Flex wrap="wrap" gap="small">
+        <Button type="primary" ghost>
+          Primary
+        </Button>
+        <Button ghost>Default</Button>
+        <Button type="dashed" ghost>
+          Dashed
+        </Button>
+        <Button type="primary" danger ghost id="btn-group3">
+          Danger
+        </Button>
+      </Flex>
 
-  <Flex wrap="wrap" gap="small">
-    <Button type="primary" ghost>
-      Primary
-    </Button>
-    <Button ghost>Default</Button>
-    <Button type="dashed" ghost>
-      Dashed
-    </Button>
-    <Button type="primary" danger ghost id="btn-group3">
-      Danger
-    </Button>
-  </Flex>
-
-  <OnBoarding
-      steps={
-        [
+      <OnBoarding
+        steps={[
           {
             selector: () => {
-              return document.getElementById('btn-group1');
+              return document.getElementById("btn-group1");
             },
             renderContent: () => {
-              return "神说要有光";
+              return "神说要有光1";
             },
-            placement: 'bottom'
+            placement: "bottom",
           },
           {
             selector: () => {
-              return document.getElementById('btn-group2');
+              return document.getElementById("btn-group2");
             },
             renderContent: () => {
-              return "于是就有了光";
+              return "于是就有了光2";
             },
-            placement: 'bottom'
+            placement: "bottom",
           },
           {
             selector: () => {
-              return document.getElementById('btn-group3');
+              return document.getElementById("btn-group3");
             },
             renderContent: () => {
-              return "你相信光么";
+              return "你相信光么3";
             },
-            placement: 'bottom'
-          }
-        ]
-      } />
-  </div>
+            placement: "bottom",
+          },
+        ]}
+      />
+    </div>
+  );
 }
 
-export default App
+export default App;
